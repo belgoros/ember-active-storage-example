@@ -59,3 +59,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
+# Added at 2018-05-04 10:45:39 +0200 by algodave:
+gem "active_model_serializers", "~> 0.10.7"
