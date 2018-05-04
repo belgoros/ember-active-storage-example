@@ -1,0 +1,14 @@
+<div class="container companies-container">
+  {{#each model as |company|}}
+    {{#if company.id}}
+      <div class="row">
+        <div class="col-1">
+          <img src="{{company.logo}}" class="img-thumbnail" height="32" width="32">
+        </div>
+        <div class="col">
+          {{company.name}}
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>

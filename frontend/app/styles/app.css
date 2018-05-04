@@ -1,0 +1,7 @@
+.companies-container {
+  margin-top: 20px;
+}
+
+.companies-container > .row {
+  margin-top: 10px;
+}
