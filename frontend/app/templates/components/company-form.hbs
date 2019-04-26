@@ -1,0 +1,31 @@
+<form {{action "saveCompany" on="submit"}}>
+
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <label for="title">Name</label>
+      {{input type="text" class="form-control" value=company.name}}
+    </div>
+  </div>
+
+  {{#if company.logo}}
+    <div class="form-row">
+      <div class="form-group col-sm-6">
+        <label>Your company Logo</label>
+        <img
+          src={{company.logo}}
+          alt="company logo"
+          class="img-thumbnail"
+          height="32"
+          width="32"
+        >
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="form-row">
+    <label>Change Logo:</label>
+    {{file-upload onFileUploaded=(action "setCompanyLogo") class="form-control-file"}}
+  </div>
+
+  {{yield}}
+</form>
