@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   #
   # API
   #
-  resources :companies, only: [:index, :create]
+  resources :companies
 end
