@@ -3,7 +3,6 @@ class CompanySerializer < ActiveModel::Serializer
 
   attributes :id, :name, :logo
 
-
   def logo
     url_for(object.logo) if object.logo.attached?
   end
