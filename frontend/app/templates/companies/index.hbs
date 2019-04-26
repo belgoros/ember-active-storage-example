@@ -1,14 +1,44 @@
 <div class="container companies-container">
-  {{#each model as |company|}}
-    {{#if company.id}}
-      <div class="row">
-        <div class="col-1">
-          <img src="{{company.logo}}" class="img-thumbnail" height="32" width="32">
-        </div>
-        <div class="col">
-          {{company.name}}
-        </div>
-      </div>
-    {{/if}}
-  {{/each}}
+  <div class="table-responsive-sm">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Company name</th>
+          <th scope="col">Company Logo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |company|}}
+          <tr data-test-post="post-list-item">
+            <td>{{company.name}}</td>
+            <td>
+              {{#if company.logo}}
+                <img
+                  src={{company.logo}}
+                  alt="company logo"
+                  class="img-thumbnail"
+                  height="32"
+                  width="32"
+                >
+              {{/if}}
+            </td>
+            <td>
+              {{#link-to "companies.edit" company}}
+                {{fa-icon "edit"}}
+              {{/link-to}}
+            </td>
+            <td>
+              <button {{action "destroyCompany" company}}>
+                {{fa-icon "trash"}}
+              </button>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>
+
+{{#link-to "companies.new" class="btn btn-success"}}
+  New
+{{/link-to}}
