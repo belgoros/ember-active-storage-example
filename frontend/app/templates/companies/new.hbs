@@ -1,16 +1,8 @@
-<div class="container">
-  <form>
-    <div class="form-group row">
-      <label>Company Name</label>
-      {{input type="text" class="form-control" value=(mut (get model 'name'))}}
-    </div>
-    <div class="form-group row">
-      {{file-upload onFileUploaded=(action 'setCompanyLogo') class="form-control-file"}}
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button {{action "save"}} class="btn btn-sm btn-primary">Save</button>
-      </div>
-    </div>
-  </form>
-</div>
+{{#company-form company=model submitAction=(action "save")}}
+  <button
+    type="submit"
+    class="btn btn-success"
+  >
+    Save
+  </button>
+{{/company-form}}
