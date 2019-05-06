@@ -6,7 +6,7 @@ export default Controller.extend({
     async save() {
       let company = this.get('model');
       await company.save();
-      this.transitionToRoute('companies');
+      await this.transitionToRoute('companies');
     }
   }
 });
