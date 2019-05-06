@@ -4,6 +4,11 @@ class CompanySerializer < ActiveModel::Serializer
   attributes :id, :name, :logo
 
   def logo
-    url_for(object.logo) if object.logo.attached?
+    if object.logo.attached?
+      {
+        url: rails_blob_url(object.logo),
+        signed_id: object.logo.signed_id
+      }
+    end
   end
 end
